@@ -1261,6 +1261,9 @@ int bwFinalize(bigWigFile_t *fp) {
     four = BIGWIG_MAGIC;
     if(fwrite(&four, sizeof(uint32_t), 1, fp->URL->x.fp) != 1) return 9;
 
+    fprintf(stderr, "[NG_CLOSEFILE]\n");
+    fclose(fp->URL->x.fp);
+
     return 0;
 }
 
